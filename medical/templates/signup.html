@@ -1,0 +1,15 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+  <h2>Sign Up</h2>
+  <form method="post">
+    {% csrf_token %}
+        <label >Username</label>
+        {{ form.username }}
+        <label >Password</label>
+        {{ form.password1 }}
+        <label>Confirm password</label>
+        {{ form.password2 }}
+    <p >Already have an account? <a href="{% url 'login' %}" class="login-link">Login here!</a></p>
+        <button type="submit" >Sign Up</button>  
+</form>
+{% endblock %}

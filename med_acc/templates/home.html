@@ -1,0 +1,33 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+
+            <form class="input-group" id="searchForm" method="get" action="{% url 'searchmedicine' %}">
+                <input type="text" name="query" class="form-control" id="searchInput" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-dark">Search</button>   
+            </form>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Medicine ID</th>
+                    <th>Medicine Name</th>
+                    <th>Medicine Stock</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for Medicine in list_medicine %}
+                <tr>
+                    <td>{{ Medicine.id }}</td>
+                    <td>{{ Medicine.name }}</td>
+                    <td>{{ Medicine.stock }}</td>
+                    <td>
+                        <a href="{% url 'editmedicine' Medicine.id %}" >Edit</a>
+                        <a href="{% url 'dltmedicine' Medicine.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+ 
+{% endblock %}

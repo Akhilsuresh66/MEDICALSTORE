@@ -1,0 +1,13 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+<h1 >Search Medicine</h1>
+
+    {% if medicines %}
+        {% for med in medicines %}
+                    <h4 >{{ med.name }}</h4>
+                    <p >Stock: {{ med.stock }}</p>  
+        {% endfor %} 
+    {% else %}
+        No medicines found.
+    {%endif%}
+{% endblock %}

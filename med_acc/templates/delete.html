@@ -1,0 +1,11 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+                    <h3 >Delete Confirmation</h3>
+               
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <p>Are you sure you want to delete {{ Medicine.name }}?</p>
+                        <button type="submit" class="btn btn-danger">Confirm</button>
+                    </form>
+               
+{% endblock %}
